@@ -64,56 +64,6 @@ public class MainActivity extends AppCompatActivity {
         startService(intent);
     }
 
-    private void initializeConfigurationPaypal() {
-        mPayPalConfiguration =
-                new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
-                        .clientId("AXWoLCb7viR9piqf5Eih0qogMjaAZn41izBQo4JXJMcNZEfrSkgepT8n0QFjMCFoGb06gwO3trw5rvrH")
-                        .merchantName(NAME_COMPANY_PAYPAL)
-                        .merchantPrivacyPolicyUri(Uri.parse(URL_PRIVACY_POLICY_PAYPAL))
-                        .merchantUserAgreementUri(Uri.parse(URL_USER_AGREEMENT_PAYPAL));
-    }
-
-    private void initializeServicePaypal() {
-        Intent intent = new Intent(MainActivity.this, PayPalService.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, mPayPalConfiguration);
-        startService(intent);
-    }
-
-    private void finishPaypalService() {
-        stopService(new Intent(MainActivity.this, PayPalService.class));
-    }
-
-
-    public void showAddPaypalScreen() {
-        Intent intent = new Intent(MainActivity.this, PayPalFuturePaymentActivity.class);
-        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, mPayPalConfiguration);
-        startActivityForResult(intent, REQUEST_CODE_PAYPAL);
-    }
-
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        Log.e("myLog", "aqui");
-//        if (requestCode == REQUEST_CODE_PAYPAL) {
-//
-//            if (resultCode == Activity.RESULT_OK) {
-//
-//                PayPalAuthorization auth =
-//                        data.getParcelableExtra(PayPalFuturePaymentActivity.EXTRA_RESULT_AUTHORIZATION);
-//                if (auth != null) {
-////                    sendAuthorizationCodePaypal(auth.getAuthorizationCode());
-//                } else {
-////                    errorAddPaypal();
-//                }
-//            } else if (resultCode == PayPalFuturePaymentActivity.RESULT_EXTRAS_INVALID) {
-////                errorAddPaypal();
-//            }
-//        }
-//    }
-
-    public void showErrorAddPaypal() {
-//        showDefaultMessageSnackBar(R.string.message_error_add_paypal);
-    }
 
     /**
      * @param idString Id del texto a mostrar.
@@ -198,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
 }

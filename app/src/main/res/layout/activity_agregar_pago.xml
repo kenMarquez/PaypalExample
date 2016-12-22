@@ -34,7 +34,7 @@
                 android:layout_centerVertical="true"
                 android:hint="Número de tarjeta de crédito/débito"
                 android:inputType="number"
-                android:maxLength="16"
+                android:maxLength="19"
                 android:maxLines="1"
                 android:paddingBottom="15dp"
                 android:paddingLeft="40dp"

@@ -80,7 +80,8 @@ public class AgregarPago extends AppCompatActivity {
                 // Never log a raw card number. Avoid displaying it, but if necessary use getFormattedCardNumber()
                 resultDisplayStr = "Card Number: " + scanResult.getRedactedCardNumber() + "\n";
 
-                inputCardNumber.setText(scanResult.getRedactedCardNumber());
+//                inputCardNumber.setText(scanResult.getRedactedCardNumber());
+                inputCardNumber.setText(scanResult.getFormattedCardNumber());
 
 
                 // Do something with the raw number, e.g.:
@@ -119,7 +120,8 @@ public class AgregarPago extends AppCompatActivity {
         Conekta.setApiVersion("1.0.0"); //Set api version (optional)
         Conekta.collectDevice(AgregarPago.this); //Collect device
 
-        Card card = new Card("name", "4242424242424242", "332", "11", "2017");
+        Card card = new Card("name", inputCardNumber.getText().toString(),
+                inputCvv.getText().toString(), inputMonth.getText().toString(), inputYear.getText().toString());
         Token token = new Token(AgregarPago.this);
 
         token.onCreateTokenListener(new Token.CreateToken() {
