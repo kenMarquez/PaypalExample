@@ -34,12 +34,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    private PayPalConfiguration mPayPalConfiguration;
-    private static final int REQUEST_CODE_PAYPAL = 12;
-
-    private static final String NAME_COMPANY_PAYPAL = "OhanaHome";
-    private static final String URL_PRIVACY_POLICY_PAYPAL = "https://www.ohanahome.mx/privacy";
-    private static final String URL_USER_AGREEMENT_PAYPAL = "https://www.ohanahome.mx/legal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
